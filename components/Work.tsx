@@ -157,21 +157,23 @@ export default function Work() {
       <style dangerouslySetInnerHTML={{
         __html: `
         .work-root {
-          background-color: #f7f2e6; /* Themed beige */
-          color: #516856; /* Themed green */
+          background-color: #f7f2e6;
+          color: #516856;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
           min-height: 100vh;
           padding-bottom: 8rem;
-          padding-top: 8rem; /* Adjusted since we removed the custom header */
+          padding-top:88px;   
+          margin-top:0;    
           user-select: none;
         }
 
         /* Hero Section */
         .work-hero {
-          padding: 6rem 2.5rem 0rem;
+          padding: 1.5rem 2.5rem 0;  /* FIX: bottom padding set to 0 to eliminate gap */
           max-width: 100%;
-          margin: 0 auto -0.5rem; /* pull grid up */
+          margin: 0 auto;
           position: relative;
+          z-index: 10;
         }
 
         .hero-title-container {
@@ -179,13 +181,13 @@ export default function Work() {
           align-items: baseline;
           justify-content: space-between;
           padding-bottom: 0;
-          margin-bottom: 0; /* eliminate any bottom space */
+          margin-bottom: 0;
         }
 
         .hero-title {
           font-size: 16vw;
           font-weight: 900;
-          line-height: 0.5; /* tighter vertical spacing */
+          line-height: 0.75;      /* FIX: tightened line-height to remove internal descender spacing */
           letter-spacing: -0.04em;
           margin: 0;
           display: flex;
@@ -202,7 +204,7 @@ export default function Work() {
         .view-toggle {
           position: absolute;
           right: 2.5rem;
-          top: 1rem; /* Align with title vertically */
+          top: 1rem;
           display: flex;
           gap: 0.5rem;
           font-size: 0.85rem;
@@ -222,7 +224,7 @@ export default function Work() {
         .filter-row {
           position: absolute;
           right: 2.5rem;
-          top: 2.5rem; /* Align below view-toggle */
+          top: 2.5rem;
           display: flex;
           justify-content: flex-end;
           font-size: 0.85rem;
@@ -268,7 +270,7 @@ export default function Work() {
         /* Work Grid */
         .work-grid {
           width: 100%;
-          margin: -0.5rem auto 0; /* eliminate gap */
+          margin: 0;              /* FIX: removed "0 auto 0" → plain 0 to eliminate any top gap */
           display: grid;
           grid-template-columns: repeat(12, 1fr);
           gap: 0;
@@ -290,7 +292,6 @@ export default function Work() {
           border-bottom: 1px solid #516856;
         }
 
-        /* Remove right border on the last column items */
         .project-tile:nth-child(2),
         .project-tile:nth-child(5),
         .project-tile:nth-child(7),
@@ -472,7 +473,7 @@ export default function Work() {
       {/* Hero Section */}
       <section className="work-hero">
         <div className="hero-title-container">
-          <h1 className="hero-title">Work <span className="hero-sup">(12)</span></h1>
+          <h1 className="hero-title">Work <span className="hero-sup"></span></h1>
           <div className="view-toggle">
             Views <span className={view === 'grid' ? 'active' : ''} onClick={() => setView('grid')}>1</span>|
             <span className={view === 'list' ? 'active' : ''} onClick={() => setView('list')}>2</span>
@@ -501,7 +502,7 @@ export default function Work() {
           {filteredProjects.map((p) => (
             <div key={p.id} className={`project-tile span-${p.span}`}>
               <div className="tile-image-container">
-                <img src={p.image} alt={p.title} className="tile-image" loading="lazy" />
+                <img src={p.image} alt={p.title} className="tile-image" loading="lazy" draggable={false} />
               </div>
               <div className="tile-header">
                 <h3 className="tile-title">{p.title}</h3>
@@ -545,7 +546,7 @@ export default function Work() {
         <div className="archived-strip">
           {archivedProjects.map((ap) => (
             <div key={ap.id} className="archived-tile">
-              <img src={ap.image} alt={ap.title} className="archived-img" loading="lazy" />
+              <img src={ap.image} alt={ap.title} className="archived-img" loading="lazy" draggable={false} />
               <div className="archived-title">{ap.title}</div>
             </div>
           ))}

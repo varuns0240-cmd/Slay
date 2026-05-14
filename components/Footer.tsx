@@ -221,7 +221,12 @@ export default function Footer() {
         <div className="mwg_effect020-css w-embed">
           <style dangerouslySetInnerHTML={{ __html: "\n                .mwg_effect020 img {\n                    width: 15vw;\n                    position: absolute;\n                    object-fit: cover;\n                    z-index: 5;\n                    pointer-events: none;\n                }\n\n                .mwg_effect020 .medias img {\n                    width: 1px;\n                    height: 1px;\n                    top: 0;\n                    left: 0;\n                    position: absolute;\n                    visibility: hidden;\n                    pointer-events: none;\n                }\n            " }} />
         </div>
-        <div className="medias"><img src="https://cdn.prod.website-files.com/6848603da8e6ac95794b7498/684c3404e57460370b97757c_7719b29e960423bac19acd325c901392_gh-logo-blue.svg" loading="lazy" alt="Get Hyped logo blauw" /><img src="https://cdn.prod.website-files.com/6848603da8e6ac95794b7498/684c3415233f03ab6c1143fa_gh-logo-pink.svg" loading="lazy" alt="Get Hyped logo roze" /><img src="https://cdn.prod.website-files.com/6848603da8e6ac95794b7498/684c3415e192971624995445_gh-logo-green.svg" loading="lazy" alt="Get Hyped logo groen" /><img src="https://cdn.prod.website-files.com/6848603da8e6ac95794b7498/684c3415b3eecf81e4b1d9a7_gh-logo-red.svg" loading="lazy" alt="Get Hyped logo rood" /></div>
+        <div className="medias">
+          <img src="/logo.jpeg" loading="lazy" alt="SWS logo" style={{ height: '80px', width: 'auto' }} />
+          <img src="/logo.jpeg" loading="lazy" alt="SWS logo" style={{ height: '80px', width: 'auto' }} />
+          <img src="/logo.jpeg" loading="lazy" alt="SWS logo" style={{ height: '80px', width: 'auto' }} />
+          <img src="/logo.jpeg" loading="lazy" alt="SWS logo" style={{ height: '80px', width: 'auto' }} />
+        </div>
       </section>
     </div>
   );

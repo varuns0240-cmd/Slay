@@ -9,7 +9,7 @@
   --color-mode-light--button-bg: #516856 !important;
   --color-mode-light--button-text: #f7f2e6 !important;
   --color-mode-light--button-outline: #516856 !important;
-  
+
   /* Webflow overrides for dark mode (alternate) */
   --color-mode-dark--background: #516856 !important;
   --color-mode-dark--body-text: #f7f2e6 !important;
@@ -27,13 +27,13 @@
   /* Webflow Brand Colors (for SelectedWork cards etc) */
   --_colors---brand-colors--red: #f7f2e6 !important;
   --_colors---brand-colors--red-400: #516856 !important;
-  
+
   --_colors---brand-colors--blue: #516856 !important;
   --_colors---brand-colors--blue-500: #f7f2e6 !important;
-  
+
   --_colors---brand-colors--green: #f7f2e6 !important;
   --_colors---brand-colors--green-300: #516856 !important;
-  
+
   --_colors---brand-colors--pink: #f7f2e6 !important;
   --_colors---brand-colors--pink-500: #516856 !important;
 }
@@ -50,7 +50,6 @@ body {
 
 body {
   min-height: 100%;
-  display: flex;
   flex-direction: column;
   color: var(--foreground) !important;
   background: var(--background) !important;
@@ -74,4 +73,16 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Override any Webflow stylesheet interference */
+.page-wrapper,
+.main-wrapper {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Override Webflow nav height offset if navbar is fixed/sticky */
+.main-wrapper {
+  padding-top: 0 !important;
 }

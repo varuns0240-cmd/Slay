@@ -1,6 +1,8 @@
 // @ts-nocheck
 'use client';
 import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function LenisSetup() {
   useEffect(() => {
@@ -25,9 +27,17 @@ export default function LenisSetup() {
         }
         requestAnimationFrame(raf);
 
-        if (window.ScrollTrigger) {
+        // Sync NPM GSAP
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // Sync Global Webflow GSAP
+        if (window.ScrollTrigger && window.ScrollTrigger !== ScrollTrigger) {
             lenis.on("scroll", window.ScrollTrigger.update);
-            if (window.gsap) {
+            if (window.gsap && window.gsap !== gsap) {
                 window.gsap.ticker.add((time) => {
                     lenis.raf(time * 1000);
                 });
